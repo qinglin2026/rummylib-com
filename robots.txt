@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /games/
+Disallow: /preview-server.cjs
+Disallow: /generate-
+Disallow: /patch-
+Sitemap: https://rummylib.com/sitemap.xml
+

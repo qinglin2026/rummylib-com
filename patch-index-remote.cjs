@@ -1,0 +1,2 @@
+const fs=require('fs');const s=fs.readFileSync('script.js','utf8');const m=s.match(/const sourceLogos=(\{.*?\});/s);const map=JSON.parse(m[1]);let h=fs.readFileSync('index.html','utf8');h=h.replace(/<img class="game-logo" src="[^"]+" alt="([^"]+) logo"/g,(all,name)=>map[name]?`<img class="game-logo" src="${map[name]}" alt="${name} logo"`:all);fs.writeFileSync('index.html',h);console.log(Object.keys(map).length)
+

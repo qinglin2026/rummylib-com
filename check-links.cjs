@@ -1,0 +1,1 @@
+const fs=require('fs');const xml=fs.readFileSync('sitemap.xml','utf8');const urls=[...xml.matchAll(/<loc>https:\/\/rummylib\.com([^<]+)<\/loc>/g)].map(m=>'http://127.0.0.1:4137'+m[1]);(async()=>{const bad=[];for(const u of urls){const r=await fetch(u);if(r.status!==200)bad.push([u,r.status])}console.log({urls:urls.length,bad})})()
